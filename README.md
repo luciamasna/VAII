@@ -5,14 +5,12 @@ Lucia Masná
 5ZYR32
 
 ## Stručný opis projektu
-Táto webová aplikácia má riešiť evidenciu pacientov, plánovanie a správu termínov, ako aj poskytovanie informácií o službách zubnej ambulancie. Je určená pre pacientov, ktorí si chcú pohodlne rezervovať termíny online, a pre administrátorov ambulancie, ktorí potrebujú efektívne spravovať databázu pacientov a ich návštevy. Aplikácia zároveň slúži lekárovi, ktorému umožňuje prezerať si kalendár naplánovaných vyšetrení, pristupovať k zdravotným kartám pacientov a zaznamenávať absolvované vyšetrenia a vykonané zákroky.
+Táto webová aplikácia má riešiť evidenciu pacientov, plánovanie a správu termínov, ako aj poskytovanie informácií o službách zubnej ambulancie. Je určená pre pacientov, ktorí si chcú pohodlne rezervovať termíny online, a pre administrátorov ambulancie, ktorí potrebujú efektívne spravovať databázu pacientov a ich návštevy.
 
 ## Role v projekte
 **Návštevník (neprihlásený používateľ)**: Má prístup k verejnej časti webovej stránky. Môže si prezerať informácie o ambulancii, poskytované služby, fotografie a aktuality. Má možnosť vytvoriť si používateľský účet alebo sa prihlásiť.
 
 **Pacient**: Má prístup k svojmu používateľskému účtu, v ktorom môže spravovať osobné údaje, prezerať dostupné termíny a  zarezervovať si termín na vyšetrenia. Môže si prezerať históriu absolvovaných vyšetrení a informácie o preventívnych prehliadkach.
-
-**Lekár**: Má prístup k svojmu používateľskému účtu, v ktorom môže spravovať svoj rozvrh, prezerať plánované zákroky a spravovať svoj čas. Môže si prezerať informácie o pacientoch.
 
 **Administrátor ambulancie**: Zodpovedá za správu pacientov, ich údajov a termínov vyšetrení. Spravuje kalendár ambulancie a zabezpečuje aktuálnosť informácií o pacientoch a ich návštevách.
 
@@ -38,17 +36,6 @@ Táto webová aplikácia má riešiť evidenciu pacientov, plánovanie a správu
 - Zobrazenie histórie absolvovaných vyšetrení a zákrokov.
 - Zobrazenie dátumu poslednej absolvovanej preventívnej prehliadky.
 
-### Lekár ###
-- Prihlásenie a odhlásenie z používateľského účtu.
-- Zobrazenie kalendára naplánovaných preventívnych prehliadok a stomatologických zákrokov.
-- Zobrazenie informácií o pacientoch objednaných na jednotlivé termíny.
-- Vyhľadávanie pacientov podľa mena alebo rodného čísla.
-- Zobrazenie zdravotnej karty pacienta.
-- Zobrazenie histórie absolvovaných vyšetrení a zákrokov pacienta.
-- Zobrazenie a úprava zdravotných údajov pacienta (napr. alergie, užívané lieky, ochorenia a poznámky).
-- Zaznamenanie absolvovaného vyšetrenia alebo vykonaného zákroku vrátane dátumu, typu a stručného opisu.
-- Zaznamenanie absolvovania preventívnej prehliadky.
-
 ### Administrátor ambulancie ###
 - Prihlásenie a odhlásenie z používateľského účtu.
 - Zobrazenie zoznamu pacientov ambulancie.
@@ -71,7 +58,7 @@ Táto webová aplikácia má riešiť evidenciu pacientov, plánovanie a správu
 - Správa informácií o pracovných príležitostiach v sekcii Kariéra.
 
 ## Plánované entity ##
-![Plánované entity](/entity.png)
+![Plánované entity](/tabs.png)
 
 ### User (Používateľ) ###
 
@@ -87,7 +74,7 @@ Entita slúži na evidenciu pacientov zubnej ambulancie a uchovávanie ich zákl
 
 **Hlavné atribúty:** rod_cislo (primárny kľúč), user_id (cudzí kľúč), meno, priezvisko, tel_c, adresa (cudzí kľúč).
 
-**Vzťahy:** Pacient je prepojený s používateľským účtom a adresou. Môže mať viacero rezervovaných termínov a absolvovaných vyšetrení, pričom k nemu patrí jedna zdravotná karta.
+**Vzťahy:** Pacient je prepojený s používateľským účtom a adresou. Môže mať viacero rezervovaných termínov a absolvovaných termínov.
 
 ### Termin ###
 
@@ -96,22 +83,6 @@ Entita slúži na evidenciu dostupných a rezervovaných termínov preventívnyc
 **Hlavné atribúty:** id (primárny kľúč), datum, pacient (cudzí kľúč, môže byť NULL), typ_vysetrenia.
 
 **Vzťahy:** Termín môže byť priradený jednému pacientovi. Ak atribút pacient neobsahuje hodnotu, termín je voľný a dostupný na rezerváciu.
-
-### Vysetrenie ###
-
-Entita slúži na evidenciu absolvovaných preventívnych prehliadok a stomatologických zákrokov. Umožňuje lekárovi zaznamenávať vykonané vyšetrenia a uchovávať ich ako súčasť zdravotnej dokumentácie pacienta.
-
-**Hlavné atribúty:** id (primárny kľúč), datum, pacient (cudzí kľúč), typ_vysetrenia, popis.
-
-**Vzťahy:**  Každé vyšetrenie patrí jednej konkrétnej zdravotnej karte prostredníctvom atribútu pacient, ktorý odkazuje na rodné číslo v entite Zdravotna_karta. Jedna zdravotná karta môže obsahovať viacero vyšetrení.
-
-### Zdravotna_karta ###
-
-Entita slúži na evidenciu zdravotnej dokumentácie pacienta. Obsahuje základné informácie o jeho zdravotnom stave, ako sú alergie, užívané lieky, ochorenia a ďalšie poznámky. Súčasťou zdravotnej karty je aj história absolvovaných preventívnych prehliadok a stomatologických zákrokov, ktoré sú evidované v samostatnej entite Vysetrenie.
-
-**Hlavné atribúty:** rod_cislo (primárny a cudzí kľúč), evidovany_od, alergie, lieky, choroby, poznamky.
-
-**Vzťahy:** Každá zdravotná karta patrí jednému pacientovi a môže obsahovať viacero záznamov o absolvovaných vyšetreniach.
 
 ### Adresa ###
 
@@ -133,18 +104,6 @@ Každý pacient má priradenú jednu adresu, pričom rovnaká adresa môže patr
 ### Pacient – Termin (1:N) ###
 
 Jeden pacient môže mať rezervovaných viacero termínov, pričom každý obsadený termín patrí najviac jednému pacientovi. Termín môže existovať aj bez priradeného pacienta, čo znamená, že je voľný. Vzťah je realizovaný prostredníctvom atribútu pacient v tabuľke Termin.
-
-### Pacient – Vysetrenie (1:N) ###
-
-Jeden pacient môže absolvovať viacero vyšetrení a zákrokov. Každé zaznamenané vyšetrenie patrí jednému konkrétnemu pacientovi. Tento vzťah umožňuje uchovávanie a zobrazovanie histórie absolvovaných vyšetrení.
-
-### Pacient – Zdravotna_karta (1:1) ###
-
-Každému pacientovi prislúcha jedna zdravotná karta, ktorá obsahuje informácie o jeho zdravotnom stave a umožňuje evidenciu absolvovaných vyšetrení. Každá zdravotná karta patrí práve jednému pacientovi. Vzťah je realizovaný prostredníctvom atribútu rod_cislo, ktorý je v tabuľke Zdravotna_karta primárnym aj cudzím kľúčom odkazujúcim na entitu Pacient.
-
-### Zdravotna_karta – Vysetrenie (1:N) ###
-
-Jedna zdravotná karta môže obsahovať viacero záznamov o absolvovaných preventívnych prehliadkach a stomatologických zákrokoch. Každé vyšetrenie patrí jednej konkrétnej zdravotnej karte. Vzťah je realizovaný prostredníctvom cudzieho kľúča pacient v tabuľke Vysetrenie, ktorý odkazuje na atribút rod_cislo v tabuľke Zdravotna_karta. Toto prepojenie umožňuje uchovávanie a zobrazovanie histórie všetkých absolvovaných vyšetrení pacienta v rámci jeho zdravotnej dokumentácie.
 
 ## Hlavné stránky aplikácie
 **1. Úvodná stránka (Aktuality a oznamy)**
@@ -171,22 +130,13 @@ Stránka bude dostupná prihláseným pacientom a umožní im prezerať si kalen
 
 Stránka bude obsahovať osobné a kontaktné údaje prihláseného pacienta, ktoré si bude môcť prezerať a upravovať. Pacient tu bude mať zároveň prehľad o svojich nadchádzajúcich rezervovaných termínoch s možnosťou ich zrušenia a históriu absolvovaných vyšetrení a zákrokov.
 
-**7. Kalendár vyšetrení (Lekár)**
-
-Stránka bude určená prihlásenému lekárovi a umožní mu zobrazovať kalendár naplánovaných preventívnych prehliadok a stomatologických zákrokov. Pri jednotlivých termínoch bude mať k dispozícii informácie o objednaných pacientoch.
-
-**8. Zdravotné karty pacientov (Lekár)**
-
-Stránka umožní lekárovi vyhľadávať pacientov a pristupovať k ich zdravotným kartám. Lekár si bude môcť prezerať a upravovať zdravotné údaje pacientov, zobrazovať históriu absolvovaných vyšetrení a pridávať nové záznamy o vykonaných vyšetreniach a zákrokoch.
-
-**9. Správa termínov (Zubná asistentka)**
+**7. Správa termínov (Zubná asistentka)**
 
 Stránka bude určená zubnej asistentke na správu termínov v ambulancii. Umožní jej vytvárať nové termíny preventívnych prehliadok a stomatologických zákrokov, upravovať alebo rušiť existujúce termíny a zobrazovať ich obsadenosť spolu s informáciami o objednaných pacientoch.
 
-**10. Správa pacientov (Zubná asistentka)**
+**8. Správa pacientov (Zubná asistentka)**
 
 Stránka umožní zubnej asistentke zobrazovať zoznam evidovaných pacientov, vyhľadávať konkrétnych pacientov a spravovať ich osobné a kontaktné údaje. Bude tiež umožňovať pridávanie nových pacientov do evidencie ambulancie.
-
 
 ## Rozdelenie funkcionality
 
@@ -215,18 +165,6 @@ Základné funkcie predstavujú hlavné funkcionality webovej aplikácie, ktoré
 - Zobrazenie nadchádzajúcich rezervovaných termínov a možnosť ich zrušenia.
 
 - Zobrazenie histórie absolvovaných vyšetrení a zákrokov.
-
-#### Funkcie lekára ####
-
-- Zobrazenie kalendára naplánovaných vyšetrení a objednaných pacientov.
-
-- Vyhľadávanie pacientov a zobrazenie ich zdravotných kariet.
-
-- Zobrazenie a úprava zdravotných údajov pacientov.
-
-- Zaznamenávanie absolvovaných vyšetrení a vykonaných zákrokov.
-
-- Zobrazenie histórie vyšetrení jednotlivých pacientov.
 
 #### Funkcie zubnej asistentky (administrátora ambulancie) ####
 
