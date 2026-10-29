@@ -3,28 +3,29 @@
  * @var \Framework\Support\LinkGenerator $link
  */
 ?>
-<link rel="stylesheet" href="<?= $link->asset('css/pacientDashboard.css') ?>">
+
 <!-----------Hlavna cast stranky - Kalendar---------->
+<main class = "pacientDashboard_main">
         <div>
             <h1>Rezervácia termínov</h1>
             <table>
                 <caption>Október 2026</caption>
                 <thead>
                     <tr>
-                        <th><span class = "celyDen">Pondelok</span>
-                            <span class = "skratkaDna">Po</span></th>
-                        <th><span class = "celyDen">Utorok</span>
-                            <span class = "skratkaDna">Ut</span></th>
-                        <th><span class = "celyDen">Streda</span>
-                            <span class = "skratkaDna">St</span></th>
-                        <th><span class = "celyDen">Štvrtok</span>
-                            <span class = "skratkaDna">Št</span></th>
-                        <th><span class = "celyDen">Piatok</span>
-                            <span class = "skratkaDna">Pi</span></th>
-                        <th><span class = "celyDen">Sobota</span>
-                            <span class = "skratkaDna">So</span></th>
-                        <th><span class = "celyDen">Nedeľa</span>
-                            <span class = "skratkaDna">Ne</span></th>
+                        <th><span class = "full_day_name">Pondelok</span>
+                            <span class = "short_day_name">Po</span></th>
+                        <th><span class = "full_day_name">Utorok</span>
+                            <span class = "short_day_name">Ut</span></th>
+                        <th><span class = "full_day_name">Streda</span>
+                            <span class = "short_day_name">St</span></th>
+                        <th><span class = "full_day_name">Štvrtok</span>
+                            <span class = "short_day_name">Št</span></th>
+                        <th><span class = "full_day_name">Piatok</span>
+                            <span class = "short_day_name">Pi</span></th>
+                        <th><span class = "full_day_name">Sobota</span>
+                            <span class = "short_day_name">So</span></th>
+                        <th><span class = "full_day_name">Nedeľa</span>
+                            <span class = "short_day_name">Ne</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -116,3 +117,4 @@
                 </div>
             </div>
         </aside>
+</main>

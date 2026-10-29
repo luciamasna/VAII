@@ -2,41 +2,41 @@
 
 
 /*--------nastavenia hlavnej casti stranky --------*/
-main {
+.pacientDashboard_main {
     padding: 20px;
 }
 
 /*skryje bočný panel na mobiloch*/
-main aside {
+.pacientDashboard_main aside {
     display: none;
 }
 
 /*nastavenie hlavneho nadpisu*/
-main h1 {
+.pacientDashboard_main h1 {
     font-size: 36px;
     line-height: 1.2;
 }
 
 /*nastavenie kalendara*/
 
-main > div {
+.pacientDashboard_main > div {
     min-width: 0;
 }
 
-main table {
+.pacientDashboard_main table {
     width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
 }
 
-main th,
-main td {
+.pacientDashboard_main th,
+.pacientDashboard_main td {
     border: 1px solid black;
     text-align: center;
     padding: 5px 2px;
     overflow-wrap: anywhere;
 }
-.celyDen {
+.full_day_name {
     display : none;
 }
 
@@ -44,36 +44,36 @@ main td {
 /*-------------------------------------zobrazenie pre vacsie obrazovky-------------------------------------*/
 @media (min-width: 1024px) {
         /*----------nastavenia hlavnej casti stranky----------*/
-    main {
+    .pacientDashboard_main {
         display: flex; /*usporiada hlavnu cast a bocny panel vedla seba*/
         gap: 30px; /*nastavenie medzery medzi hlavnou castou a bocnym panelom*/
     }
 
     /*nastavenia hlavneho textu/kalendara*/
-    main > div {
+    .pacientDashboard_main > div {
         flex: 3; /*nastavenie sirky hlavnej casti na 3/4 sirky celej stranky*/
     }
 
     /*nastavenia kalendara*/
-    .skratkaDna {
+    .short_day_name {
         display: none;
     }
-    .celyDen {
+    .full_day_name {
         display: inline;
     }
 
     /*zobrazenie bocneho panela na vacsich obrazovkach*/
-    main aside {
+    .pacientDashboard_main aside {
         display: block;
         flex: 1;/*nastavenie sirky bocneho panela na 1/4 sirky celej stranky*/
     }
     /*nastavenie rozlozenia osobnych udajov*/
-    main aside dl {
+    .pacientDashboard_main aside dl {
         display: grid;
         grid-template-columns: 100px 1fr;/*vytvori 2 stlpce - prvy stlpec bude mat fixnu sirku 100px a druhy stlpec bude mat sirku podla obsahu*/
         gap: 10px;
     }
-    main aside dd {
+    .pacientDashboard_main aside dd {
         margin: 0;
     }
 

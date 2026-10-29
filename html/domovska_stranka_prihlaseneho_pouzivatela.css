@@ -90,7 +90,7 @@ main td {
     padding: 5px 2px;
     overflow-wrap: anywhere;
 }
-.celyDen {
+.full_day_name {
     display : none;
 }
 
@@ -170,10 +170,10 @@ footer address a {
     }
 
     /*nastavenia kalendara*/
-    .skratkaDna {
+    .short_day_name {
         display: none;
     }
-    .celyDen {
+    .full_day_name {
         display: inline;
     }
 
