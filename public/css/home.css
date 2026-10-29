@@ -1,0 +1,58 @@
+
+
+/*--------nastavenia hlavnej casti stranky--------*/
+
+main {
+    padding: 20px;
+}
+
+/*skryje bočný panel na mobiloch*/
+main aside {
+    display: none;
+}
+/*nastavenie hlavneho nadpisu*/
+main h1 {
+    font-size: 36px;
+    line-height: 1.2;
+}
+/*nastavenie hlavneho textu*/
+main p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+
+/*-------------------------------------zobrazenie pre vacsie obrazovky-------------------------------------*/
+@media (min-width: 1024px) {
+
+    /*----------nastavenia hlavnej casti stranky----------*/
+    main {
+        display: flex; /*usporiada hlavnu cast a bocny panel vedla seba*/
+        gap: 30px; /*nastavenie medzery medzi hlavnou castou a bocnym panelom*/
+    }
+    /*nastavenia hlavneho textu*/
+    main > div {
+        flex: 3; /*nastavenie sirky hlavnej casti na 3/4 sirky celej stranky*/
+    }
+
+    /*zobrazenie bocneho panela na vacsich obrazovkach*/
+    main aside {
+        display: block;
+        flex: 1;/*nastavenie sirky bocneho panela na 1/4 sirky celej stranky*/
+    }
+    /*nastavenie rozlozenia ordinacnych hodin*/
+    main aside dl {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 10px;
+    }
+    main aside dd {
+        margin: 0;
+    }
+
+
+
+
+}
+

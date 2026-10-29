@@ -1,0 +1,80 @@
+
+
+
+/*--------nastavenia hlavnej casti stranky --------*/
+main {
+    padding: 20px;
+}
+
+/*skryje bočný panel na mobiloch*/
+main aside {
+    display: none;
+}
+
+/*nastavenie hlavneho nadpisu*/
+main h1 {
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+/*nastavenie kalendara*/
+
+main > div {
+    min-width: 0;
+}
+
+main table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+main th,
+main td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px 2px;
+    overflow-wrap: anywhere;
+}
+.celyDen {
+    display : none;
+}
+
+
+/*-------------------------------------zobrazenie pre vacsie obrazovky-------------------------------------*/
+@media (min-width: 1024px) {
+        /*----------nastavenia hlavnej casti stranky----------*/
+    main {
+        display: flex; /*usporiada hlavnu cast a bocny panel vedla seba*/
+        gap: 30px; /*nastavenie medzery medzi hlavnou castou a bocnym panelom*/
+    }
+
+    /*nastavenia hlavneho textu/kalendara*/
+    main > div {
+        flex: 3; /*nastavenie sirky hlavnej casti na 3/4 sirky celej stranky*/
+    }
+
+    /*nastavenia kalendara*/
+    .skratkaDna {
+        display: none;
+    }
+    .celyDen {
+        display: inline;
+    }
+
+    /*zobrazenie bocneho panela na vacsich obrazovkach*/
+    main aside {
+        display: block;
+        flex: 1;/*nastavenie sirky bocneho panela na 1/4 sirky celej stranky*/
+    }
+    /*nastavenie rozlozenia osobnych udajov*/
+    main aside dl {
+        display: grid;
+        grid-template-columns: 100px 1fr;/*vytvori 2 stlpce - prvy stlpec bude mat fixnu sirku 100px a druhy stlpec bude mat sirku podla obsahu*/
+        gap: 10px;
+    }
+    main aside dd {
+        margin: 0;
+    }
+
+}

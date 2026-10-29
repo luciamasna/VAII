@@ -1,0 +1,139 @@
+/*width/height bude zahrnat obsah, padding, border*/
+* {
+    box-sizing: border-box;
+}
+
+/*-----------nastavenia hlavicky-----------*/
+header {
+    display: flex; /*lebo vsetko bude v jednom riadku*/
+    align-items: center; /*vycentruje obsah v hlavicke na stred (zvislo)*/
+    justify-content: space-between; /*rozdeli volny priestor medzi jednotlive elementy*/
+    padding: 10px; /*vytvor9 vnutorny odstup od okrajov hlavicky*/
+    gap: 8px; /*vytvori medzeru medzi jednotlivymi elementami*/
+}
+
+/*nastavenie loga a nazvu*/
+header > div {
+    display: flex; /*lebo vsetko bude v jednom riadku*/
+    align-items: center; /*vycentruje obsah v hlavicke na stred (zvislo)*/
+    gap: 4px; /*vytvori medzeru medzi logom a nazvom*/
+}
+
+/*nastavenie loga*/
+header img {
+    width: 50px; /*nastavenie sirky loga*/
+    height: 50px; /*nastavenie vysky loga*/
+    object-fit: contain; /*zabezpečí, aby sa celý obrázok zmestil do určených rozmerov bez deformácie.*/
+}
+
+/*nastavenie nazvu*/
+header > div p {
+    font-size: 18px;/*nastavenie velkosti písma nazvu*/
+    margin: 0;/*odstrani predvoleny okraj odstavca*/
+}
+
+/*uprava ikon v hlavicke*/
+header button{
+    font-size: 15px; /*nastavenie velkosti ikon*/
+    min-width: 44px; /*tlacidlo bude min siroke 44px*/
+    min-height: 44px; /*tlacidlo bude min vysoke 44px*/
+    /*odstrani predvoleny styl tlacidla*/
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/*skryje navigaciu na mobiloch*/
+header nav {
+    display: none;
+}
+
+/*skryje prihlasenie na mobiloch*/
+.prihlasenie span {
+    display: none;
+}
+
+/*-----------nastavenia paticky-----------*/
+/*nastavenie paticky pre mobil (bude to pod sebou)*/
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+/*nastavenie adresy*/
+footer address {
+    font-style: normal;
+}
+
+/*nastavenie navigacie*/
+footer nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /*nastavenie 2 stlpcov*/
+    column-gap: 70px;/*nastavenie medzery medzi stlpcami*/
+    row-gap: 5px;/*nastavenie medzery medzi riadkami*/
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*nastavenie kontaktov*/
+footer address a {
+    display: block; /*zabezpeci, aby sa kazdy odkaz zobrazil na novom riadku*/
+}
+
+/*-------------------------------------zobrazenie pre vacsie obrazovky-------------------------------------*/
+@media (min-width: 1024px) {
+    /*----------nastavenia hlavicky*-----------*/
+    /*zobrazenie navigacie na vacsich obrazovkach*/
+    header nav {
+        display: block;
+    }
+
+    /*nastavenie navigacie v hlavicke na vacsich obrazovkach*/
+    header nav ul {
+        display: flex;
+        gap: 15px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /*skrytie hamburger menu na vacsich obrazovkach*/
+    .hamburger {
+        display: none;
+    }
+
+    /*zobrazenie Prihlasenia na vacsich obrazovkach*/
+    .prihlasenie span {
+        display: inline; /*nastavenie riadkovej znacky, aby sa text zobrazil na rovnakom riadku ako ikona*/
+    }
+
+    /*skrytie tlacidla bocneho panela na vacsich obrazovkach*/
+    .bocny-panel-tlacidlo {
+        display: none;
+    }
+
+    /*----------nastavenia paticky----------*/
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 80px;
+    }
+
+    footer .adresa {
+        order: 1;
+    }
+
+    footer nav {
+        order: 2;
+    }
+
+    footer .kontakt {
+        order: 3;
+    }
+
+}
