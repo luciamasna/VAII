@@ -136,7 +136,7 @@ footer address a {
     }
 
     /*skrytie tlacidla bocneho panela na vacsich obrazovkach*/
-    .bocny-panel-tlacidlo {
+    .sidebar_button {
         display: none;
     }
 
@@ -174,7 +174,7 @@ footer address a {
         padding: 40px 80px;
     }
 
-    footer .adresa {
+    footer .adress {
         order: 1;
     }
 
@@ -182,7 +182,7 @@ footer address a {
         order: 2;
     }
 
-    footer .kontakt {
+    footer .contact {
         order: 3;
     }
 

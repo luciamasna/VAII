@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?= $link->asset('css/common.css') ?>">
     <link rel="stylesheet" href="<?= $link->asset('css/home.css') ?>">
     <link rel="stylesheet" href="<?= $link->asset('css/pacientDashboard.css') ?>">
+    <link rel="stylesheet" href="<?= $link->asset('css/announcements.css') ?>">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>Zubná ambulancia</title>
@@ -22,9 +23,9 @@
 <body>
     <header>
         <!-- Logo a nazov zubnej ambulancie -->
-        <div class = "logo-nazov">
-            <img src="<?= $link->asset('images/dentalLogo.png') ?>" alt="Logo zubnej ambulancie" width="1600" height="1700">
-            <p>Zubná<br> ambulancia</p>
+        <div class ="logo_name">
+            <img class ="logo" src="<?= $link->asset('images/logo.png') ?>" alt="Logo zubnej ambulancie" width="1600" height="1700">
+            <p class = "name">Zubná<br> ambulancia</p>
         </div>
 
         <!-- Hamburger menu tlacidlo pre mobilnu navigaciu -->
@@ -47,13 +48,13 @@
         </nav>
 
         <!--tlacidlo na prihlasenie sa-->
-        <button type="button" class="prihlasenie" aria-label="Prihlásiť sa">
+        <button type="button" class="login" aria-label="Prihlásiť sa">
             <i class="fa-regular fa-user" aria-hidden="true"></i>
             <span>Prihlásiť sa</span>
         </button>
 
         <!--tlacidlo na otvorenie bocneho panelu-->
-        <button type="button" class="bocny-panel-tlacidlo" aria-label="Otvoriť bočný panel">
+        <button type="button" class="sidebar_button" aria-label="Otvoriť bočný panel">
             <i class="fa-solid fa-table-columns" aria-hidden="true"></i>
         </button>
     </header>
@@ -64,7 +65,7 @@
 
     <footer>
         <!-- Adresa ambulancie -->
-        <div class = "adresa">
+        <div class = "adress">
             <h2>Adresa</h2>
             <address>
                 Miesto pre adresu ambulancie<br>
@@ -72,7 +73,7 @@
             </address>
         </div>
         <!-- Kontakty ambulancie -->
-        <div class = "kontakt">
+        <div class = "contact">
             <h2>Kontakt</h2>
             <address>
                 <!--umozni dane udaje hned pouzit-->

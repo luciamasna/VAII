@@ -2,39 +2,39 @@
 
 
 /*--------nastavenia hlavnej casti stranky --------*/
-.pacientDashboard_main {
-    padding: 20px;
-}
-
-/*skryje bočný panel na mobiloch*/
-.pacientDashboard_main aside {
-    display: none;
-}
 
 /*nastavenie hlavneho nadpisu*/
-.pacientDashboard_main h1 {
+.page_main h1 {
     font-size: 36px;
     line-height: 1.2;
 }
 
 /*nastavenie kalendara*/
 
-.pacientDashboard_main > div {
+.pacientDashboard_main {
     min-width: 0;
 }
-
-.pacientDashboard_main table {
+.calendar th,
+.calendar td {
+    border: none;
+}
+.calendar {
     width: 100%;
     table-layout: fixed;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 5px;/*nastavenie medzery medzi bunkami*/
 }
 
-.pacientDashboard_main th,
-.pacientDashboard_main td {
-    border: 1px solid black;
-    text-align: center;
-    padding: 5px 2px;
-    overflow-wrap: anywhere;
+
+
+.calendar td {
+    height: 55px;/*nastavenie vysky buniek*/
+    padding: 8px 4px;/*nastavenie vnutorneho okraja buniek*/
+    text-align: center;/*nastavenie zarovnania textu v bunkach na stred*/
+    vertical-align: middle;/*nastavenie zarovnania textu v bunkach na stred (zvislo)*/
+    border-radius: 6px;/*nastavenie zaoblenia hran buniek*/
+    background-color: #DDDDDD;
+    color: #657575;
 }
 .full_day_name {
     display : none;
@@ -43,17 +43,6 @@
 
 /*-------------------------------------zobrazenie pre vacsie obrazovky-------------------------------------*/
 @media (min-width: 1024px) {
-        /*----------nastavenia hlavnej casti stranky----------*/
-    .pacientDashboard_main {
-        display: flex; /*usporiada hlavnu cast a bocny panel vedla seba*/
-        gap: 30px; /*nastavenie medzery medzi hlavnou castou a bocnym panelom*/
-    }
-
-    /*nastavenia hlavneho textu/kalendara*/
-    .pacientDashboard_main > div {
-        flex: 3; /*nastavenie sirky hlavnej casti na 3/4 sirky celej stranky*/
-    }
-
     /*nastavenia kalendara*/
     .short_day_name {
         display: none;
@@ -62,19 +51,5 @@
         display: inline;
     }
 
-    /*zobrazenie bocneho panela na vacsich obrazovkach*/
-    .pacientDashboard_main aside {
-        display: block;
-        flex: 1;/*nastavenie sirky bocneho panela na 1/4 sirky celej stranky*/
-    }
-    /*nastavenie rozlozenia osobnych udajov*/
-    .pacientDashboard_main aside dl {
-        display: grid;
-        grid-template-columns: 100px 1fr;/*vytvori 2 stlpce - prvy stlpec bude mat fixnu sirku 100px a druhy stlpec bude mat sirku podla obsahu*/
-        gap: 10px;
-    }
-    .pacientDashboard_main aside dd {
-        margin: 0;
-    }
 
 }

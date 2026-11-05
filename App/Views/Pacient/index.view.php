@@ -5,10 +5,10 @@
 ?>
 
 <!-----------Hlavna cast stranky - Kalendar---------->
-<main class = "pacientDashboard_main">
-        <div>
+<main class = "page_main">
+        <div class = "pacientDashboard_main">
             <h1>Rezervácia termínov</h1>
-            <table>
+            <table class = "calendar">
                 <caption>Október 2026</caption>
                 <thead>
                     <tr>
@@ -82,7 +82,7 @@
         <aside>
 
             <!-- Informacie o prihlasenom pouzivatelovi -->
-            <div>
+            <div class =  "sidebar_card sidebar_card_first">
                 <h2>Osobné informácie</h2>
                 <!-- Pouzitie definition list na zobrazenie udajov kde dt je názov a dd je hodnota -->
                 <dl>
@@ -99,20 +99,20 @@
             </div>
 
             <!--Datum poslednej preventivnej prehliadky prihlaseneho uzivatela-->
-            <div>
+            <div class= "sidebar_card">
                 <h2>Posledná preventivná prehliadka</h2>
                 <time datetime="2024-01-01">01.01.2024</time>
             </div>
 
-            <div>
+            <div class = "sidebar_card">
                 <h2>Často kladené otázky</h2>
-                <div class = "otazka">
+                <div class = "question">
                     <h3>Otázka 1</h3>
                 </div>
-                <div class = "otazka">
+                <div class = "question">
                     <h3>Otázka 2</h3>
                 </div>
-                <div class = "otazka">
+                <div class = "question">
                     <h3>Otázka 3</h3>
                 </div>
             </div>

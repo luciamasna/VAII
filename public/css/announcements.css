@@ -1,0 +1,89 @@
+/*rozlozenie oznamov v hlavnej casti*/
+.announcement {
+    background-color: var(--color-card);
+    color: var(--color-text);
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+/*rozlozenie hornej casti oznamov v hlavnej casti*/
+.announcements_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+/*rozlozenie datumu jedneho oznamu v hlavnej casti*/
+.announcement .announcement_date {
+    display: block;
+    text-align: right;
+}
+
+/*--------------------spravovanie oznamov--------------------*/
+
+/*vzhlad button spravovat oznamy a upravit*/
+.manage_button {
+    display: inline-block;
+    background-color: var(--color-primary-card);
+    color: var(--color-white);
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.delete_button {
+    background-color: var(--color-primary-card);
+    color: var(--color-white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+/* Nadpis jedneho oznamu a tlacidla Upravit, Vymazat - rozlozenie */
+.announcement_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+/* Rozlozenie tlacidiel Upravit a Vymazat */
+.announcement_actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/*--------------------formular pre pridanie a upravu oznamu---------------------*/
+.form_group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form_group input,
+.form_group textarea {
+    padding: 12px;
+    border: 1px solid var(--color-card);
+    border-radius: 8px;
+    font: inherit;
+}
+
+.form_actions {
+    display: flex;
+    gap: 10px;
+}
+
+
+/* Prisposobenie tlacidiel pre mensie obrazovky - zalomenie*/
+@media (max-width: 600px) {
+    .announcements_header,
+    .announcement_header {
+        flex-wrap: wrap;
+    }
+
+    .announcement_actions {
+        flex-wrap: wrap;
+    }
+}

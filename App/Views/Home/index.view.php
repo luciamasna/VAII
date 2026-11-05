@@ -6,8 +6,8 @@
 
 
     <!-----------Hlavna cast stranky---------->
-<main class = "home_main">
-    <div>
+<main class = "page_main">
+    <div class = "home_main">
         <h1>Hlavná časť</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra eros nunc, in pharetra nisi efficitur vel. Morbi a arcu lacus. Sed posuere felis non velit semper vestibulum quis id nunc. Pellentesque imperdiet justo non varius tristique. Morbi at condimentum massa, ac tempus nisl. Sed commodo dui et nulla molestie malesuada. Curabitur turpis velit, tristique nec facilisis eu, rutrum et neque. Nullam nec lorem magna. Nulla eu sem sed mauris viverra congue sit amet id neque. Vestibulum aliquam ante vitae ullamcorper semper. Vivamus quam risus, cursus nec felis vel, bibendum pellentesque nunc.
 
@@ -20,7 +20,7 @@
     <!--Bocny panel stranky-->
     <aside>
         <!-- Ordinačné hodiny -->
-        <div>
+        <div class = " sidebar_card sidebar_card_first">
             <h2>Ordinačné hodiny</h2>
             <dl>
                 <dt>Pondelok:</dt><dd>7:00 - 15:00</dd>
@@ -32,28 +32,30 @@
             </dl>
         </div>
         <!-- Oznamy -->
-        <div>
-            <h2>Oznamy</h2>
-            <div class = "oznam">
-                <h3>Oznam 1</h3>
-            </div>
-            <div class = "oznam">
-                <h3>Oznam 2</h3>
-            </div>
-            <div class = "oznam">
-                <h3>Oznam 3</h3>
-            </div>
+        <div class = "sidebar_card">
+            <a href="<?= $link->url('announcement.index') ?>"><h2>Oznamy</h2></a>
+
+            <?php if (empty($latestAnnouncements)): ?>
+                <p>Momentálne nie sú žiadne oznamy.</p>
+            <?php else: ?>
+                <?php foreach ($latestAnnouncements as $announcement): ?>
+                    <div class="sidebar_announcement">
+                        <h3><?= e($announcement->getTitle()) ?></h3>
+                        <p><?= e($announcement->getText()) ?></p>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
         <!-- Často kladené otázky -->
-        <div>
+        <div class = "sidebar_card">
             <h2>Často kladené otázky</h2>
-            <div class = "otazka">
+            <div class = "question">
                 <h3>Otázka 1</h3>
             </div>
-            <div class = "otazka">
+            <div class = "question">
                 <h3>Otázka 2</h3>
             </div>
-            <div class = "otazka">
+            <div class = "question">
                 <h3>Otázka 3</h3>
             </div>
         </div>

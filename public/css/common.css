@@ -1,6 +1,26 @@
+:root {
+    --color-background: #FFFFFF;
+    --color-content: #E3F2EF;
+    --color-card: #D1EAE5;
+    --color-primary-card: #197C78;
+    --color-text: #244442;
+    --color-white: #FFFFFF;
+    --color-footer: #197C78;
+    --color-announcement: #E3F2EF;
+
+}
+
+
 /*width/height bude zahrnat obsah, padding, border*/
 * {
     box-sizing: border-box;
+}
+/* Zakladny vzhlad stranky */
+body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, sans-serif;
 }
 
 /*-----------nastavenia hlavicky-----------*/
@@ -10,25 +30,26 @@ header {
     justify-content: space-between; /*rozdeli volny priestor medzi jednotlive elementy*/
     padding: 10px; /*vytvor9 vnutorny odstup od okrajov hlavicky*/
     gap: 8px; /*vytvori medzeru medzi jednotlivymi elementami*/
+    border-bottom: 2px solid #E0E8E7;/*farba a hrubka spodnej hranice hlavicky*/
 }
 
 /*nastavenie loga a nazvu*/
-header > div {
+header .logo_name {
     display: flex; /*lebo vsetko bude v jednom riadku*/
     align-items: center; /*vycentruje obsah v hlavicke na stred (zvislo)*/
-    gap: 4px; /*vytvori medzeru medzi logom a nazvom*/
+    gap: 7px; /*vytvori medzeru medzi logom a nazvom*/
 }
 
 /*nastavenie loga*/
-header img {
+header .logo {
     width: 50px; /*nastavenie sirky loga*/
     height: 50px; /*nastavenie vysky loga*/
     object-fit: contain; /*zabezpečí, aby sa celý obrázok zmestil do určených rozmerov bez deformácie.*/
 }
 
 /*nastavenie nazvu*/
-header > div p {
-    font-size: 18px;/*nastavenie velkosti písma nazvu*/
+header .name{
+    font-size: 20px;/*nastavenie velkosti písma nazvu*/
     margin: 0;/*odstrani predvoleny okraj odstavca*/
 }
 
@@ -50,9 +71,68 @@ header nav {
 }
 
 /*skryje prihlasenie na mobiloch*/
-.prihlasenie span {
+header .login span {
     display: none;
 }
+
+/*--------nastavenia hlavnej casti stranky--------*/
+
+.page_main {
+    padding: 20px;
+}
+
+/* Vzhlad hlavneho obsahoveho kontajnera */
+.page_main > div {
+    background-color: var(--color-content);
+    border-radius: 12px;
+    padding: 24px;
+}
+/*nastavenie bocneho panela*/
+/* Spolocny vzhlad bocnych kariet */
+.sidebar_card {
+    background-color: var(--color-card);
+    border-radius: 12px;
+    padding: 20px;
+
+}
+/* Odlisenie prvej karty */
+.sidebar_card_first {
+    background-color: var(--color-primary-card);
+    color: var(--color-white);
+}
+
+/*nastavenie rozlozenia ordinacnych hodin/osobnych udajov*/
+.sidebar_card_first dl {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    row-gap: 10px;
+    column-gap: 50px;
+}
+
+/*rozlozenie bocneho panela*/
+.page_main aside {
+    display: none; /*skryje bočný panel na mobiloch*/
+}
+
+/*rozlozenie oznamov v bocnom paneli*/
+.sidebar_announcement {
+    background-color: var(--color-announcement);
+    color: var(--color-text);
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.sidebar_announcement h3 {
+    font-size: 14px;
+    margin: 0 0 6px 0;
+}
+
+.sidebar_announcement p {
+    font-size: 13px;
+    margin: 0;
+}
+
 
 /*-----------nastavenia paticky-----------*/
 /*nastavenie paticky pre mobil (bude to pod sebou)*/
@@ -61,10 +141,12 @@ footer {
     flex-direction: column;
     gap: 20px;
     padding: 20px;
+    background-color: var(--color-footer);
+    color: var(--color-white);
 }
 
 /*nastavenie adresy*/
-footer address {
+footer .adress address {
     font-style: normal;
 }
 
@@ -80,13 +162,14 @@ footer nav ul {
 }
 
 /*nastavenie kontaktov*/
-footer address a {
+footer .contact a {
     display: block; /*zabezpeci, aby sa kazdy odkaz zobrazil na novom riadku*/
 }
 
 /*-------------------------------------zobrazenie pre vacsie obrazovky-------------------------------------*/
 @media (min-width: 1024px) {
     /*----------nastavenia hlavicky*-----------*/
+
     /*zobrazenie navigacie na vacsich obrazovkach*/
     header nav {
         display: block;
@@ -102,19 +185,41 @@ footer address a {
     }
 
     /*skrytie hamburger menu na vacsich obrazovkach*/
-    .hamburger {
+    header .hamburger {
         display: none;
     }
 
     /*zobrazenie Prihlasenia na vacsich obrazovkach*/
-    .prihlasenie span {
+    header .login span {
         display: inline; /*nastavenie riadkovej znacky, aby sa text zobrazil na rovnakom riadku ako ikona*/
     }
 
     /*skrytie tlacidla bocneho panela na vacsich obrazovkach*/
-    .bocny-panel-tlacidlo {
+    .sidebar_button {
         display: none;
     }
+
+    /*----------nastavenia hlavnej casti stranky----------*/
+    .page_main {
+        display: flex; /*usporiada hlavnu cast a bocny panel vedla seba*/
+        gap: 30px; /*nastavenie medzery medzi hlavnou castou a bocnym panelom*/
+    }
+    /*nastavenia hlavnej casti*/
+    .page_main > div {
+        flex: 3; /*nastavenie sirky hlavnej casti na 3/4 sirky celej stranky*/
+        min-width: 0;
+    }
+
+    /*zobrazenie bocneho panela na vacsich obrazovkach*/
+    .page_main aside {
+        display: flex;
+        flex: 1;/*nastavenie sirky bocneho panela na 1/4 sirky celej stranky*/
+        min-width: 0;
+        flex-direction: column;/*usporiada karty v bočnom paneli pod sebou*/
+        gap: 16px;/*nastavenie medzery medzi kartami*/
+    }
+
+
 
     /*----------nastavenia paticky----------*/
     footer {
@@ -124,7 +229,7 @@ footer address a {
         padding: 40px 80px;
     }
 
-    footer .adresa {
+    footer .adress {
         order: 1;
     }
 
@@ -132,7 +237,7 @@ footer address a {
         order: 2;
     }
 
-    footer .kontakt {
+    footer .contact {
         order: 3;
     }
 
